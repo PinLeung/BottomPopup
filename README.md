@@ -1,20 +1,25 @@
 一、如何导入依赖
-1. 
-repositories {
+1. 添加仓库
+    ```
+    repositories {
         google()
         jcenter()
         maven { url 'https://jitpack.io' }
-    }
-2.
- dependencies {
+     }
+   
+2.导入依赖
+     ```
+     dependencies {
 
-    ......
-    implementation 'com.lxj:xpopup:2.0.2'
-    implementation 'com.github.PinLeung:BottomPopup:V1.0.0'
- }
+      ......
+      implementation 'com.lxj:xpopup:2.0.2'
+       implementation 'com.github.PinLeung:BottomPopup:V1.0.0'
+      }
+
 二、如何使用
-bottom.setOnClickListener(v -> {
-            Calendar date = Calendar.getInstance();
+          ```
+            bottom.setOnClickListener(v -> {
+              Calendar date = Calendar.getInstance();
             //月份从0开始的，传5表示6月份
             date.set(2000, 5, 1);
             TimePickerPopup popup = new TimePickerPopup(MainActivity.this)
@@ -35,8 +40,10 @@ bottom.setOnClickListener(v -> {
             new XPopup.Builder(MainActivity.this)
                     .asCustom(popup)
                     .show();
-        });
-       三、扩展
+         });
+         
+三、扩展
+  ```
        1.setYearRange(1990, -1)//设置年份范围，传入的范围是1990-2100，-1表示其中最大值或者最小值
        2.setDateRang（data，data）//传入时间范围，null表示最大值
        3.setDialogBackground(Drawable drawable)//设置背景
