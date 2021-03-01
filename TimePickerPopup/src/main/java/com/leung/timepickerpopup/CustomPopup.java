@@ -1,16 +1,13 @@
-package com.leung.bottomwindow;
+package com.leung.timepickerpopup;
 
 import android.content.Context;
-import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import com.lxj.xpopup.animator.PopupAnimator;
 import com.lxj.xpopup.core.CenterPopupView;
 
-
-class CustomPopup extends CenterPopupView {
+public class CustomPopup extends CenterPopupView {
     private TextView title;
     private TextView cancel;
     private TextView confirm;
@@ -18,6 +15,9 @@ class CustomPopup extends CenterPopupView {
     private OnClickListener cancelListener;
     private String cancelText="取消";
     private String confirmText="确定";
+    private int  cancelTextColor= 0xff333333;
+    private int  confirmTextColor= 0xff38A6FF;
+    private int titleTextColor=0xff202020;
     private String titleText="";
     private boolean isCancelHide=false;
 
@@ -41,6 +41,8 @@ class CustomPopup extends CenterPopupView {
         cancel = findViewById(R.id.tv_cancel);
         title.setText(titleText);
         confirm.setText(confirmText);
+        confirm.setTextColor(confirmTextColor);
+        cancel.setTextColor(cancelTextColor);
         if (isCancelHide){
             cancel.setVisibility(GONE);
         }else {
@@ -70,11 +72,27 @@ class CustomPopup extends CenterPopupView {
         this.confirmText = confirmText;
         return this;
     }
+    public CustomPopup setConfirmTextColor(int  confirmTextColor) {
+        this.confirmTextColor=confirmTextColor;
+        return this;
+    }
+    public CustomPopup setCancelTextColor(int cancelTextColor) {
+        this.cancelTextColor = cancelTextColor;
+        return this;
+    }
+
 
     public CustomPopup setTitleText(String titleText) {
         this.titleText = titleText;
         return this;
     }
+
+    public CustomPopup setTitleTextColor(int titleTextColor) {
+        this.titleTextColor = titleTextColor;
+        return this;
+    }
+
+
 
     public CustomPopup setConfirmListener(OnClickListener confirmListener) {
         this.confirmListener = confirmListener;

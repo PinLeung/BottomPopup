@@ -7,8 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.leung.timepickerpopup.listener.TimePickerListener;
+
 import com.leung.timepickerpopup.TimePickerPopup;
+import com.leung.timepickerpopup.listener.TimePickerListener;
+
 import com.lxj.xpopup.XPopup;
 import com.lxj.xpopup.impl.LoadingPopupView;
 import com.lxj.xpopup.interfaces.OnSelectListener;
@@ -31,16 +33,16 @@ public class MainActivity extends AppCompatActivity {
         Button b5 = this.findViewById(R.id.button5);
 
 
-        CustomPopup customPopup = new CustomPopup(this)
-                .setConfirmListener(v -> { })
-                .setTitleText("我是标题")
-                .setHide(true);
-
-        b1.setOnClickListener(v -> {
-            new XPopup.Builder(this)
-                    .asCustom(customPopup)
-                    .show();
-        });
+//        CustomPopup customPopup = new CustomPopup(this)
+//                .setConfirmListener(v -> { })
+//                .setTitleText("我是标题")
+//                .setHide(true);
+//
+//        b1.setOnClickListener(v -> {
+//            new XPopup.Builder(this)
+//                    .asCustom(customPopup)
+//                    .show();
+//        });
 //        customPopup.setNegativeButton("asfd",v -> {
 //            Toast.makeText(MainActivity.this, "选择的时间：", Toast.LENGTH_SHORT).show();
 //        });
