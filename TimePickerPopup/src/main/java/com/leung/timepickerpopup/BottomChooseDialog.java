@@ -29,8 +29,10 @@ public class BottomChooseDialog {
     private TextView mContent;
     private TextView mTvConfirm;
     private WheelView wheelView;
+    private int itemsVisible = 7;
     private String content="";
     private int position=0;
+    private boolean loop=true;
 
     public BottomChooseDialog(Context context) {
         this.mContext = context;
@@ -64,6 +66,12 @@ public class BottomChooseDialog {
         dialog.setCancelable(cancel);
         return this;
     }
+
+    public BottomChooseDialog setLoop(boolean isLoop) {
+        this.loop=isLoop;
+        return this;
+    }
+
 
     /**
      * 设置是否可以取消
@@ -141,10 +149,12 @@ public class BottomChooseDialog {
             final View.OnClickListener listener) {
         setNegativeButton("取消", listener);
         return this;
+
+
     }
 
-    public BottomChooseDialog setposition(int position){
-        this.position=position;
+    public BottomChooseDialog setItemsVisible(int itemsVisible){
+        this.itemsVisible=itemsVisible;
         return this;
     }
 
@@ -180,13 +190,13 @@ public class BottomChooseDialog {
                 return dataList.indexOf(o);
             }
         };
+        wheelView.setItemsVisibleCount(itemsVisible);
+        wheelView.setCyclic(loop);
         wheelView.setAdapter(adapter);
         if (position>dataList.size()){
-            wheelView.setCurrentItem(0);
             position=0;
-        }else {
-            wheelView.setCurrentItem(position);
         }
+            wheelView.setCurrentItem(position);
 
         wheelView.setCyclic(false);
         wheelView.setOnItemSelectedListener(new OnItemSelectedListener() {

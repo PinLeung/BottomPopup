@@ -33,6 +33,7 @@ public class BottomDoubleChoiceDialog {
     private TextView mTvConfirm;
     private WheelView wvLeft;
     private WheelView wvRight;
+    private int itemsVisible = 7;
     private String lContent = "";
     private String rContent = "";
     private List<String> leftList = new ArrayList<>();
@@ -41,6 +42,7 @@ public class BottomDoubleChoiceDialog {
     private static final int RIGHT = 2;
     private int leftPosition=0;
     private int rightPosition=0;
+    private boolean loop=true;
 
     public BottomDoubleChoiceDialog(Context context) {
         this.mContext = context;
@@ -81,6 +83,12 @@ public class BottomDoubleChoiceDialog {
         return this;
     }
 
+    public BottomDoubleChoiceDialog setItemsVisible(int itemsVisible){
+        this.itemsVisible=itemsVisible;
+        return this;
+    }
+
+
     /**
      * 设置是否可以取消
      *
@@ -119,6 +127,12 @@ public class BottomDoubleChoiceDialog {
         return this;
     }
 
+
+    //是否循环
+    public BottomDoubleChoiceDialog setLoop(boolean isLoop) {
+        this.loop=isLoop;
+        return this;
+    }
     /***
      * 设置取消
      * @param text
@@ -180,6 +194,8 @@ public class BottomDoubleChoiceDialog {
 
     private void initWheelView(WheelView wheelView, final List<String> dataList, final int mode) {
         ChoiceAdapter adapter = new ChoiceAdapter(dataList);
+        wheelView.setItemsVisibleCount(itemsVisible);
+        wheelView.setCyclic(loop);
         wheelView.setAdapter(adapter);
         if (mode==LEFT){
             if (leftPosition>dataList.size()){
@@ -192,6 +208,7 @@ public class BottomDoubleChoiceDialog {
             }
             wheelView.setCurrentItem(leftPosition);
         }
+
 
         wheelView.setCyclic(false);
         wheelView.setOnItemSelectedListener(new OnItemSelectedListener() {

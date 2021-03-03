@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 
+import com.leung.timepickerpopup.BottomChooseDialog;
+import com.leung.timepickerpopup.CustomPopup;
 import com.leung.timepickerpopup.TimePickerPopup;
 import com.leung.timepickerpopup.listener.TimePickerListener;
 
@@ -16,8 +18,10 @@ import com.lxj.xpopup.impl.LoadingPopupView;
 import com.lxj.xpopup.interfaces.OnSelectListener;
 
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -33,26 +37,32 @@ public class MainActivity extends AppCompatActivity {
         Button b5 = this.findViewById(R.id.button5);
 
 
-//        CustomPopup customPopup = new CustomPopup(this)
-//                .setConfirmListener(v -> { })
-//                .setTitleText("我是标题")
-//                .setHide(true);
-//
-//        b1.setOnClickListener(v -> {
-//            new XPopup.Builder(this)
-//                    .asCustom(customPopup)
-//                    .show();
-//        });
-//        customPopup.setNegativeButton("asfd",v -> {
-//            Toast.makeText(MainActivity.this, "选择的时间：", Toast.LENGTH_SHORT).show();
-//        });
+        CustomPopup customPopup = new CustomPopup(this)
+                .setConfirmListener(v -> { })
+                .setTitleText("我是标题")
+                .setHide(true);
+
+        b1.setOnClickListener(v -> {
+            new XPopup.Builder(this)
+                    .asCustom(customPopup)
+                    .show();
+        });
 
         b2.setOnClickListener(v -> {
-            LoadingPopupView xPopup = new XPopup.Builder(this)
-                    .asLoading("正在加载中");
-            xPopup.show();
-            xPopup.delayDismiss(2000);
+            List<String> list=new ArrayList<>();
+            list.add("条目1");
+            list.add("条目2");
+            new BottomChooseDialog(this).builder()
+                    .setData(list)
+                    .show();
         });
+
+//        b2.setOnClickListener(v -> {
+//            LoadingPopupView xPopup = new XPopup.Builder(this)
+//                    .asLoading("正在加载中");
+//            xPopup.show();
+//            xPopup.delayDismiss(2000);
+//        });
 
         b3.setOnClickListener(v -> {
             new XPopup.Builder(this)

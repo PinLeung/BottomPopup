@@ -37,6 +37,7 @@ public class BottomThreeChoiceDialog {
     private String content1 = "";
     private String content2 = "";
     private String content3 = "";
+    private int itemsVisible = 7;
     private List<String> list1 = new ArrayList<>();
     private List<String> list2 = new ArrayList<>();
     private List<String> list3 = new ArrayList<>();
@@ -46,6 +47,8 @@ public class BottomThreeChoiceDialog {
     private int initOnclick1 =0;
     private int initOnclick2 =0;
     private int initOnclick3 =0;
+
+    private boolean loop=true;
 
 
     public BottomThreeChoiceDialog(Context context) {
@@ -198,8 +201,22 @@ public class BottomThreeChoiceDialog {
         void onClick(String content1, String content2, String content3);
     }
 
+
+    public BottomThreeChoiceDialog setItemsVisible(int itemsVisible){
+        this.itemsVisible=itemsVisible;
+        return this;
+    }
+
+    //是否循环
+    public BottomThreeChoiceDialog setLoop(boolean isLoop) {
+        this.loop=isLoop;
+        return this;
+    }
+
     private void initWheelView(WheelView wheelView, final List<String> dataList, final int mode) {
         ChoiceAdapter adapter = new ChoiceAdapter(dataList);
+        wheelView.setItemsVisibleCount(itemsVisible);
+        wheelView.setCyclic(loop);
         wheelView.setAdapter(adapter);
         wheelView.setCurrentItem(0);
         wheelView.setCyclic(false);
