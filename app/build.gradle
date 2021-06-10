@@ -39,6 +39,6 @@ dependencies {
     implementation 'com.necer.ncalendar:ncalendar:5.0.1'
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.lxj:xpopup:2.0.2'
-    implementation project(path:  ':TimePickerPopup')
-//    implementation 'com.github.PinLeung:BottomPopup:V1.0.1'
+//    implementation project(path:  ':TimePickerPopup')
+    implementation 'com.github.PinLeung:BottomPopup:V1.0.2'
 }

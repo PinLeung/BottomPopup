@@ -155,6 +155,7 @@ public class BottomChooseDialog {
 
     public BottomChooseDialog setItemsVisible(int itemsVisible){
         this.itemsVisible=itemsVisible;
+        wheelView.setItemsVisibleCount(itemsVisible);
         return this;
     }
 
@@ -198,7 +199,7 @@ public class BottomChooseDialog {
         }
             wheelView.setCurrentItem(position);
 
-        wheelView.setCyclic(false);
+        wheelView.setCyclic(loop);
         wheelView.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
             public void onItemSelected(int index) {

@@ -35,6 +35,7 @@ public class CityPickerPopup extends BottomPopupView {
     public float lineSpace = 2.4f; // 条目间距倍数 默认2
     public int textColorOut = 0xFFa8a8a8; //分割线以外的文字颜色
     public int textColorCenter = 0xFF2a2a2a; //分割线之间的文字颜色
+
     public CityPickerPopup(@NonNull Context context) {
         super(context);
     }

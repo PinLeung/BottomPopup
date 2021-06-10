@@ -52,7 +52,19 @@ public class MainActivity extends AppCompatActivity {
             List<String> list=new ArrayList<>();
             list.add("条目1");
             list.add("条目2");
+            list.add("条目3");
+            list.add("条目4");
+            list.add("条目5");
+            list.add("条目6");
+            list.add("条目7");
+            list.add("条目8");
+            list.add("条目9");
+            list.add("条目10");
+
+
             new BottomChooseDialog(this).builder()
+                    .setItemsVisible(5)
+                    .setLoop(false)
                     .setData(list)
                     .show();
         });

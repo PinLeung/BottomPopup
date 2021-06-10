@@ -50,6 +50,8 @@ public class TimePickerPopup  extends BottomPopupView {
     private Drawable bgDrawable;
     private int topTextColor=0xFFa8a8a8;
     private int topTextSize=16;
+    //是否循环
+    private boolean loop=true;
 
     public TimePickerPopup(@NonNull Context context) {
         super(context);
@@ -175,13 +177,18 @@ public class TimePickerPopup  extends BottomPopupView {
         wheelTime.setLabels("年", "月", "日", "时", "分", "秒");
         wheelTime.setItemsVisible(itemsVisibleCount);
         wheelTime.setAlphaGradient(true);
-        wheelTime.setCyclic(true);
+        wheelTime.setCyclic(loop);
         wheelTime.setDividerColor(dividerColor);
         wheelTime.setDividerType(WheelView.DividerType.FILL);
         wheelTime.setLineSpacingMultiplier(lineSpace);
         wheelTime.setTextColorOut(textColorOut);
         wheelTime.setTextColorCenter(textColorCenter);
         wheelTime.isCenterLabel(false);
+    }
+
+    //是否可以循环
+    public void setLoop(boolean loop) {
+        this.loop = loop;
     }
 
     public TimePickerPopup setTimePickerListener(TimePickerListener listener){
