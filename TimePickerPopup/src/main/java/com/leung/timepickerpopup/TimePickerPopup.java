@@ -187,8 +187,9 @@ public class TimePickerPopup  extends BottomPopupView {
     }
 
     //是否可以循环
-    public void setLoop(boolean loop) {
+    public TimePickerPopup setLoop(boolean loop) {
         this.loop = loop;
+        return this;
     }
 
     public TimePickerPopup setTimePickerListener(TimePickerListener listener){
