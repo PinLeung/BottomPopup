@@ -15,7 +15,9 @@ public class NumericWheelAdapter implements WheelAdapter {
     public NumericWheelAdapter(int minValue, int maxValue) {
         this.minValue = minValue;
         this.maxValue = maxValue;
+
     }
+
 
     @Override
     public Object getItem(int index) {

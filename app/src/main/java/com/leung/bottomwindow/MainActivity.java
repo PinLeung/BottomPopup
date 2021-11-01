@@ -110,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
                     //传空表示不设置值
                         .setDateRang(date, null) //设置日期范围
                     .setTopText("修改标题")
+             
                     .setLeftText("修改取消")
                     .setRightText("修改确定")
                     .setTimePickerListener(new TimePickerListener() {

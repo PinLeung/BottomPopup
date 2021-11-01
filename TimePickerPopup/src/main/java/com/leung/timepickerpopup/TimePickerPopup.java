@@ -24,7 +24,7 @@ import java.util.Date;
 
 public class TimePickerPopup  extends BottomPopupView {
     public enum Mode{
-        YMDHMS, YMDHM, YMDH, YMD, YM, Y
+        YMDHMS, YMDHM, YMDH, YMD, YM, Y,MD,HM,HMS,
     }
     public TimePickerListener timePickerListener;
     private Mode mode = Mode.YMD;
@@ -75,6 +75,12 @@ public class TimePickerPopup  extends BottomPopupView {
                 return new boolean[]{true, true, true, true, false, false};
             case YMDHM:
                 return new boolean[]{true, true, true, true, true, false};
+            case MD:
+                return new boolean[]{false, true, true, false, false, false};
+            case HM:
+                return new boolean[]{false, false, false, true, true, false};
+            case HMS:
+                return new boolean[]{false, false, false, true, true, true};
             default:
                 return new boolean[]{true, true, true, true, true, true};
         }

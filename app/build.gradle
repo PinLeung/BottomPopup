@@ -40,5 +40,5 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.lxj:xpopup:2.0.2'
 //    implementation project(path:  ':TimePickerPopup')
-    implementation 'com.github.PinLeung:BottomPopup:V1.0.2'
+    implementation 'com.github.PinLeung:BottomPopup:V1.0.4'
 }
