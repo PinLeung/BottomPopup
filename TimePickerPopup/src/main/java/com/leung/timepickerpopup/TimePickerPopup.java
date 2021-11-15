@@ -296,7 +296,7 @@ public class TimePickerPopup  extends BottomPopupView {
      */
     public TimePickerPopup setDateRang(Calendar startDate, Calendar endDate) {
         if (startDate!=null) this.startDate = startDate;
-        if (startDate!=null)this.endDate = endDate;
+        if (endDate!=null)this.endDate = endDate;
         return this;
     }
 
